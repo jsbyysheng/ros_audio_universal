@@ -1,0 +1,27 @@
+<launch>
+    <arg name="audio_input_device" default="default"/>
+    <arg name="audio_output_device" default="default"/>
+    <arg name="audio_sample_rate" default="192000"/>
+
+    <node name="audio_record" pkg="audio_universal" type="audio_record.py" output="screen">
+        <param name="input_device" value="$(arg audio_input_device)"/>
+        <param name="channels" value="1"/>
+        <param name="refresh_rate" value="30"/>
+        <param name="latency" value="high"/>
+        <param name="blocksize" value="1024"/>
+        <param name="dtype" value="float32"/>
+        <param name="samplerate" value="$(arg audio_sample_rate)"/>
+        <param name="downsample" value="10"/>
+        <param name="connects" value="0:0,0:1"/>
+    </node>
+    
+    <node name="audio_play" pkg="audio_universal" type="audio_play.py">
+        <param name="output_device" value="$(arg audio_output_device)"/>
+        <param name="channels" value="2"/>
+        <param name="refresh_rate" value="30"/>
+        <param name="latency" value="high"/>
+        <param name="blocksize" value="1024"/>
+        <param name="dtype" value="float32"/>
+        <param name="samplerate" value="$(arg audio_sample_rate)"/>
+    </node>
+</launch>
