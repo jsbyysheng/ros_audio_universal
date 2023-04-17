@@ -5,7 +5,7 @@ import numpy as np
 import queue
 import sys
 import sounddevice as sd
-from ctl_msgs.msg import AudioData
+from audio_universal.msg import AudioData
 
 '''
 ~output_device: use `python3 -m sounddevice` to get device list, numerical device ID or case-insensitive substrings is ok.

@@ -4,7 +4,7 @@ import sounddevice as sd
 import numpy as np
 import queue
 import sounddevice as sd
-from ctl_msgs.msg import AudioData, AudioDisplayData
+from audio_universal.msg import AudioData, AudioDisplayData
 from std_msgs.msg import Float32
 from std_srvs.srv import SetBool, SetBoolResponse
 
